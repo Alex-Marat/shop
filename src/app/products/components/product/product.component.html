@@ -1,0 +1,11 @@
+<div>
+  <h1>Product card</h1>
+  <ul>
+    <li>{{name}}</li>
+    <li>{{description}}</li>
+    <li>{{price}}</li>
+    <li>Made in {{category}}</li>
+    <li>{{isAvailable ? 'in the shop' : 'absent'}}</li>
+  </ul>
+  <button (click)="onClick($event)">Buy</button>
+</div>
