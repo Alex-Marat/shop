@@ -1,34 +1,15 @@
-import { Component, OnInit } from '@angular/core';
-
-import { Category } from '../../product.categories';
-import { ProductsService } from '../../products.service';
+import { Component, Input } from '@angular/core';
+import { Product } from '../../product.model';
 
 @Component({
   selector: 'app-product-component',
   templateUrl: './product.component.html',
-  styleUrls: ['./product.component.css']
+  styleUrls: ['./product.component.scss']
 })
-export class ProductComponentComponent implements OnInit {
-  id: string;
-  name: string;
-  description: string;
-  price: number;
-  category: Category;
-  isAvailable: boolean;
-
-  constructor(public productService: ProductsService) { }
-
-  ngOnInit() {
-    let { id, name, description, price, category, isAvailable } = this.productService.getProducts()[0];
-    this.id = id;
-    this.name = name;
-    this.description = description;
-    this.price = price;
-    this.category = category;
-    this.isAvailable = isAvailable;
-  }
+export class ProductComponent {
+  @Input() data: Product;
 
   onClick() {
-    console.log(`The product ${this.name}(${this.id}) is added to your cart`);
+    console.log(`The product ${this.data.name}(${this.data.id}) is added to your cart`);
   }
 }

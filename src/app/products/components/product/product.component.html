@@ -1,11 +1,11 @@
-<div>
-  <h1>Product card</h1>
+<div class="card-container">
+  <h4>Product card: {{data.name}}</h4>
   <ul>
-    <li>{{name}}</li>
-    <li>{{description}}</li>
-    <li>{{price}}</li>
-    <li>Made in {{category}}</li>
-    <li>{{isAvailable ? 'in the shop' : 'absent'}}</li>
+    <li>{{data.description}}</li>
+    <li>{{data.price}}</li>
+    <li>Made in {{data.category}}</li>
+    <li>{{data.isAvailable ? 'in the shop' : 'absent'}}</li>
   </ul>
-  <button (click)="onClick($event)">Buy</button>
+  <button class="buy-btn" [ngClass]="{'active': data.isAvailable}"
+    (click)="onClick($event)" [disabled]="!data.isAvailable">Buy</button>
 </div>

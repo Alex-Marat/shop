@@ -1,0 +1,22 @@
+.card-container {
+  min-width: 200px;
+  height: 180px;
+  border: 1px solid black;
+  padding: 10px;
+  margin: 20px;
+}
+
+.buy-btn {
+  width: 50px;
+  height: 30px;
+  padding: 5px;
+  background-color: grey;
+  color: #000;
+  border: none;
+  font-size: 14px;
+  float: right;
+
+  &.active {
+    background-color: green;
+  }
+}
