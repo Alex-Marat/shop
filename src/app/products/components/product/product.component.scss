@@ -1,9 +1,12 @@
-.card-container {
+.product-card {
   min-width: 200px;
-  height: 180px;
-  border: 1px solid black;
+  height: 160px;
   padding: 10px;
   margin: 20px;
+
+  .header {
+    font-size: 24px;
+  }
 }
 
 .buy-btn {

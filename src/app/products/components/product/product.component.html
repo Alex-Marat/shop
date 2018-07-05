@@ -1,11 +1,16 @@
-<div class="card-container">
-  <h4>Product card: {{data.name}}</h4>
-  <ul>
-    <li>{{data.description}}</li>
-    <li>{{data.price}}</li>
-    <li>Made in {{data.category}}</li>
-    <li>{{data.isAvailable ? 'in the shop' : 'absent'}}</li>
-  </ul>
-  <button class="buy-btn" [ngClass]="{'active': data.isAvailable}"
-    (click)="onClick($event)" [disabled]="!data.isAvailable">Buy</button>
-</div>
+<mat-card class="product-card">
+  <mat-card-header class="header">
+    <mat-card-title>{{data.name}}</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <ul>
+      <li>{{data.description}}</li>
+      <li>{{data.price}}</li>
+      <li>Made in {{data.category}}</li>
+      <li>Availaibility: {{data.isAvailable ? 'in the shop' : 'absent'}}</li>
+    </ul>
+
+    <button class="buy-btn" [ngClass]="{'active': data.isAvailable}"
+            (click)="onClick($event)">Buy</button>
+  </mat-card-content>
+</mat-card>
