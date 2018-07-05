@@ -1,0 +1,15 @@
+<p *ngIf="counter; else emptyCart">
+  Items in  cart: {{counter}}
+  <button (click)="showAll()">{{listIsShown ? 'Hide all' : 'Show all'}}</button>
+</p>
+
+<ng-container *ngIf="listIsShown" >
+  <div *ngFor="let item of list; index as i">
+    {{i+1}}: <span>{{item.name}}</span>
+    <button (click)="removeFromCart(item.id)">x</button>
+  </div>
+</ng-container>
+
+<ng-template #emptyCart>
+  <p> Your cart is empty</p>
+</ng-template>

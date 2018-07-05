@@ -1,4 +1,5 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
+
 import { Product } from '../../product.model';
 
 @Component({
@@ -8,8 +9,10 @@ import { Product } from '../../product.model';
 })
 export class ProductComponent {
   @Input() data: Product;
+  @Output() public buy = new EventEmitter<Product>();
 
   onClick() {
     console.log(`The product ${this.data.name}(${this.data.id}) is added to your cart`);
+    this.buy.emit(this.data);
   }
 }

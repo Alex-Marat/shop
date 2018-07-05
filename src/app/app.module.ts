@@ -5,20 +5,24 @@ import { MatCardModule } from '@angular/material/card';
 import { AppComponent } from './app.component';
 import { ProductComponent } from './products/components/product/product.component';
 import { ProductListComponent } from './products/components/product-list/product-list.component';
-import { ProductsService } from './products/products.service';
+import { CartComponent } from './products/components/cart/cart.component';
+import { ProductsService } from './products/services/products.service';
+import { CartService } from './products/services/cart.service';
 
 @NgModule({
   declarations: [
     AppComponent,
     ProductComponent,
-    ProductListComponent
+    ProductListComponent,
+    CartComponent,
   ],
   imports: [
     BrowserModule,
-    MatCardModule
+    MatCardModule,
   ],
   providers: [
-    ProductsService
+    ProductsService,
+    CartService,
   ],
   bootstrap: [AppComponent]
 })

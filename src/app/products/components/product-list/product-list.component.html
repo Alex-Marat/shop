@@ -1,3 +1,4 @@
 <div class="container">
-    <app-product-component *ngFor="let product of products" [data]="product"></app-product-component>
+    <app-product-component *ngFor="let product of products"
+      [data]="product" (buy)="onBuy($event)"></app-product-component>
 </div>
