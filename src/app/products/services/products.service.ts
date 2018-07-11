@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core';
 
-import { Product } from '../product.model';
+import { ProductModel } from '../product.model';
 import { Category } from '../product.categories';
 
 @Injectable()
 export class ProductsService {
-  products: Product[];
+  products: ProductModel[];
 
   constructor() {
     this.products = this._getProducts();
@@ -15,8 +15,14 @@ export class ProductsService {
     return this.products;
   }
 
-  private _getProducts(): Array<Product> {
+  getProductById(id: string): ProductModel {
+    return this.products.filter((p) => p.id === id)[0];
+  }
+
+  private _getProducts(): Array<ProductModel> {
     const res = [];
+    const getCount = (i) => i % 2 ? i : 0;
+
     for ( let i = 0, end = 10; i < end; i++ ) {
       res.push({
         id: 'id-' + i,
@@ -24,7 +30,8 @@ export class ProductsService {
         description: 'Description' + i,
         price: 100 + i,
         category: i % 2 === 0 ? Category.eng : Category.zh,
-        isAvailable: !!Math.round(Math.random())
+        count: getCount(i),
+        isAvailable: getCount(i) > 0
       });
     }
     return res;

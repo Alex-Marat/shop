@@ -7,10 +7,11 @@
       <li>{{data.description}}</li>
       <li>{{data.price}}</li>
       <li>Made in {{data.category}}</li>
+      <li>Total:{{data.count}}</li>
       <li>Availaibility: {{data.isAvailable ? 'in the shop' : 'absent'}}</li>
+
     </ul>
 
-    <button class="buy-btn" [ngClass]="{'active': data.isAvailable}"
-            (click)="onClick()">Buy</button>
+    <button class="buy-btn" *ngIf="data.isAvailable" (click)="onClick()">Buy</button>
   </mat-card-content>
 </mat-card>

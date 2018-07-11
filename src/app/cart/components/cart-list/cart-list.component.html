@@ -1,0 +1,22 @@
+<div class="container">
+  <p *ngIf="counter; else emptyCart">
+    Positions in  cart: {{counter}}
+    <button (click)="showAll()">{{listIsShown ? 'Hide all' : 'Show all'}}</button>
+  </p>
+
+  <ng-container *ngIf="listIsShown" >
+    <div *ngFor="let cart of list; index as i" class="list-box">
+      <div class="counter">{{i + 1}})</div><app-cart-item [data]="cart"
+        (removeItem)="removeFromCart($event)"
+        (increase)="increaseItems($event)"
+        (decrease)="decreaseItems($event)">
+      </app-cart-item>
+    </div>
+
+    <!--<div class="total">Total:{{getTotalSum}}</div>-->
+  </ng-container>
+
+  <ng-template #emptyCart>
+    <p> Your cart is empty</p>
+  </ng-template>
+</div>

@@ -1,0 +1,28 @@
+<div class="container">
+  <div class="cart-item">
+    <span class="title">{{data.name}}:</span>
+
+    <span class="counter">Quantity:  {{currentCounter}}</span>
+
+    <span class="btn" [ngClass]="{'disabled': notEnough}"
+          (click)="onIncrease($event)"
+          (mouseenter)="setIncTooltip(true)"
+          (mouseleave)="setIncTooltip(false)">
+      <i class="material-icons">add_circle_outline</i>
+    </span>
+
+    <span class="btn" [ngClass]="{'disabled': noItem}"
+          (click)="onDecrease($event)"
+          (mouseenter)="setDecTooltip(true)"
+          (mouseleave)="setDecTooltip(false)">
+      <i class="material-icons">remove_circle_outline</i>
+    </span>
+
+    <span class="sum">Sum: {{currentCounter * data.price}}</span>
+
+    <span class="btn btn--remove" (click)="onRemove()">
+      <i class="material-icons">close</i>
+    </span>
+  </div>
+  <div class="tooltip" *ngIf="tooltip">({{tooltip}})</div>
+</div>

@@ -1,0 +1,12 @@
+.container {
+  width: 300px;
+}
+
+.list-box {
+  display: flex;
+
+  .counter {
+    margin-top: 5px;
+    font-size: 20px;
+  }
+}

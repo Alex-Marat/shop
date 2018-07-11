@@ -1,0 +1,45 @@
+.container {
+  display: flex;
+  width: 700px;
+  font-size: 20px;
+}
+
+.cart-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 5px 0 5px 20px;
+  border-bottom: 1px solid gray;
+}
+
+.title {
+  margin-right: 30px;
+}
+
+.counter {
+  margin: 0 5px;
+  white-space: pre;
+}
+
+.sum {
+  margin-left: 30px;
+}
+
+.btn {
+  cursor: pointer;
+
+  &.disabled {
+    color: lightgrey;
+  }
+
+  &--remove {
+    margin-left: 20px;
+    color: red;
+  }
+}
+
+.tooltip {
+  margin-left: 25px;
+  margin-top: 8px;
+  color: gray;
+  font-size: 16px;
+}
