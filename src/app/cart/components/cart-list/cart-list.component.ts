@@ -68,6 +68,14 @@ export class CartListComponent implements OnInit, OnDestroy {
     this.ordersService.confirmOrder(this.list);
   }
 
+  clearCart() {
+    const clear = confirm('Are you sure to remove all the cart items ? ');
+    if (clear) {
+      this.cartService.clearCart();
+      this.refreshList();
+    }
+  }
+
   ngOnDestroy() {
     this.counterSubscription.unsubscribe();
   }

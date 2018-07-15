@@ -56,4 +56,9 @@ export class CartService {
   getTotalSum() {
     return this.cart.map((item) => item.count * item.price).reduce((a, b) => a + b, 0);
   }
+
+  clearCart() {
+    this.cart = [];
+    this.subjectCartItemLength.next(0);
+  }
 }

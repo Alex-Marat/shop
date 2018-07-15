@@ -13,9 +13,12 @@
       </app-cart-item>
     </div>
 
-    <div *ngIf="counter" class="total">Total: {{total | currency: '$'}}</div>
+    <ng-container *ngIf="counter" >
+      <div class="total">Total: {{total | currency: '$'}}</div>
 
-    <button class="confirm-btn" (click)="confirm()">Confirm the order</button>
+      <button class="confirm-btn" (click)="confirm()">Confirm the order</button>
+      <button class="clear-btn" (click)="clearCart()">Clear the cart</button>
+    </ng-container>
   </ng-container>
 
   <ng-template #emptyCart>
