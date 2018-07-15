@@ -12,24 +12,15 @@ export interface Product {
 }
 
 export class ProductModel implements Product {
-  id: string;
-  name: string;
-  description: string;
-  price: number;
-  category: Category;
-  count: number;
-  isAvailable: boolean;
-  discount?: number;
-
   constructor(
-    id: string,
-    name: string,
-    description: string,
-    price: number,
-    category: Category,
-    count: number,
-    isAvailable: boolean,
-    discount?: number) {
+    public id: string,
+    public name: string,
+    public description: string,
+    public price: number,
+    public category: Category,
+    public count: number,
+    public isAvailable: boolean,
+    public discount?: number) {
       this.id = id;
       this.name = name;
       this.description = description;
