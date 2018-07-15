@@ -34,8 +34,10 @@ export class CartService {
 
   increaseItemCounter(id: string) {
     if (id) {
-      this.cart.map((item) => {
-        item.id === id ? item.count++ : null;
+      this.cart.forEach((item) => {
+        if (item.id === id) {
+          item.count++ ;
+        }
       });
       this.subjectCartItemLength.next(this.cart.length);
     }
@@ -43,13 +45,15 @@ export class CartService {
 
   decreaseItemCounter(id: string) {
     if (id) {
-      this.cart.map((item) => {
-        item.id === id && item.count > 0 ? item.count-- : null;
+      this.cart.forEach((item) => {
+        if (item.id === id && item.count > 0) {
+          item.count--;
+        }
       });
     }
   }
 
-  // getTotalSum() {
-  //   return this.cart.map((item) => item.count * item.price).reduce((a, b) => a + b, 0);
-  // }
+  getTotalSum() {
+    return this.cart.map((item) => item.count * item.price).reduce((a, b) => a + b, 0);
+  }
 }

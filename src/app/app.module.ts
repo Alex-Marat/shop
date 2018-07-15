@@ -2,10 +2,9 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
-import { ProductsService } from './products/services/products.service';
-
 import { CartModule } from './cart/cart.module';
 import { ProductsModule } from './products/products.module';
+import { OrdersModule } from './orders/orders.module';
 
 @NgModule({
   declarations: [
@@ -14,10 +13,8 @@ import { ProductsModule } from './products/products.module';
   imports: [
     BrowserModule,
     CartModule,
-    ProductsModule
-  ],
-  providers: [
-    ProductsService,
+    ProductsModule,
+    OrdersModule
   ],
   bootstrap: [AppComponent]
 })

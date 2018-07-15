@@ -53,7 +53,7 @@ export class CartItemComponent implements OnInit {
 
   setIncTooltip(show) {
     if (show) {
-      this.tooltip =  this.notEnough ? 'Not enough items in the store': 'Add item';
+      this.tooltip =  this.notEnough ? 'Not enough items in the store' : 'Add item';
     } else {
       this.clearTooltip();
     }

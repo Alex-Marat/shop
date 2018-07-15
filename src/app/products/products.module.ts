@@ -4,6 +4,7 @@ import { MatCardModule } from '@angular/material/card';
 
 import { ProductComponent } from './components/product/product.component';
 import { ProductListComponent } from './components/product-list/product-list.component';
+import { ProductsService } from './services/products.service';
 
 @NgModule({
   imports: [
@@ -12,6 +13,9 @@ import { ProductListComponent } from './components/product-list/product-list.com
   ],
   declarations: [ProductComponent, ProductListComponent],
   exports: [ProductComponent, ProductListComponent],
+  providers: [
+    ProductsService,
+  ]
 
 })
 export class ProductsModule { }

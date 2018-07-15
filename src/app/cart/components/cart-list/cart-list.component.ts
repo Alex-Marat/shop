@@ -4,6 +4,7 @@ import { Subscription } from 'rxjs/Subscription';
 
 import { ProductModel } from '../../../products/product.model';
 import { CartService } from '../../services/cart.service';
+import { OrdersService } from '../../../orders/orders.service';
 
 @Component({
   selector: 'app-cart-list',
@@ -14,18 +15,23 @@ export class CartListComponent implements OnInit, OnDestroy {
   counter = 0;
   listIsShown: boolean;
   list: ProductModel[];
+  total: number;
 
   counterSubscription: Subscription;
 
   constructor(
-    public cartService: CartService
+    public cartService: CartService,
+    public ordersService: OrdersService
   ) {}
 
   ngOnInit() {
     this.counterSubscription = this.cartService.getCartItemsLength()
       .subscribe(count => {
         this.counter = count;
+        this.total = this.cartService.getTotalSum();
       });
+
+    this.total = this.cartService.getTotalSum();
   }
 
   showAll() {
@@ -39,6 +45,7 @@ export class CartListComponent implements OnInit, OnDestroy {
 
   refreshList() {
     this.list = this.cartService.getAllCartItems();
+    this.total = this.cartService.getTotalSum();
   }
 
   removeFromCart(id) {
@@ -56,9 +63,10 @@ export class CartListComponent implements OnInit, OnDestroy {
     this.refreshList();
   }
 
-  // getTotalSum () {
-  //   this.cartService.getTotalSum();
-  // }
+  confirm() {
+    alert('Thank you! See your order details in console');
+    this.ordersService.confirmOrder(this.list);
+  }
 
   ngOnDestroy() {
     this.counterSubscription.unsubscribe();
