@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, OnInit, Optional, ViewChild } from '@angular/core';
 
 import { LocalStorageService } from '../../services/local-storage.service';
 import { ConfigOptionsService } from '../../services/config-options.service';
@@ -24,8 +24,10 @@ export class DemoServicesWorkingComponent implements OnInit {
   constructor(
     public lsService: LocalStorageService,
     public configService: ConfigOptionsService,
-    public constantsService: ConstantsService
-  ) { }
+    @Optional() public constantsService: ConstantsService
+  ) {
+      this.constantsService = constantsService? constantsService : { app: 'default', ver: 0.0};
+  }
 
   ngOnInit() {
     this.currentLS = Object.entries(this.lsService.getStorage());
