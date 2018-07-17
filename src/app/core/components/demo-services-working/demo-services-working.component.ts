@@ -26,7 +26,7 @@ export class DemoServicesWorkingComponent implements OnInit {
     public configService: ConfigOptionsService,
     @Optional() public constantsService: ConstantsService
   ) {
-      this.constantsService = constantsService? constantsService : { app: 'default', ver: 0.0};
+      this.constantsService = constantsService ? constantsService : { app: 'default', ver: 0.0};
   }
 
   ngOnInit() {

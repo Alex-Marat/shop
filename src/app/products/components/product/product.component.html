@@ -4,8 +4,12 @@
   </mat-card-header>
   <mat-card-content>
     <ul>
-      <li>{{data.description}}</li>
-      <li>{{data.price}}</li>
+      <li appCustomClick [index]="1.5" class="clickable">{{data.description}}</li>
+      <li appCustomClick
+          [@goals]="animationState"
+          (animate)="onAnimate($event)"
+          class="clickable">{{data.price}}
+      </li>
       <li>Made in {{data.category}}</li>
       <li>Total:{{data.count}}</li>
       <li>Availaibility: {{data.isAvailable ? 'in the shop' : 'absent'}}</li>

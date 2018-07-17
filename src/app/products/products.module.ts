@@ -5,11 +5,13 @@ import { MatCardModule } from '@angular/material/card';
 import { ProductComponent } from './components/product/product.component';
 import { ProductListComponent } from './components/product-list/product-list.component';
 import { ProductsService } from './services/products.service';
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
   imports: [
     CommonModule,
-    MatCardModule
+    MatCardModule,
+    SharedModule
   ],
   declarations: [ProductComponent, ProductListComponent],
   providers: [

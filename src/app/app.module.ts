@@ -1,4 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
@@ -9,7 +10,6 @@ import { OrdersModule } from './orders/orders.module';
 import { CoreModule } from './core/core.module';
 import { ShopComponent } from './core/components/shop/shop.component';
 import { DemoServicesWorkingComponent} from './core/components/demo-services-working/demo-services-working.component';
-
 
 const routes: Routes = [
   { path: 'shop', component: ShopComponent },
@@ -22,6 +22,7 @@ const routes: Routes = [
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     CoreModule,
     CartModule,
     ProductsModule,
