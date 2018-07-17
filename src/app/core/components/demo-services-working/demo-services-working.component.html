@@ -1,0 +1,94 @@
+<h1> Services demonstration page </h1>
+<hr>
+
+<details>
+  <summary>LocalStorageService</summary>
+  <div class="container">
+    <div class="column">
+      <section class="block">
+        <div class="title">Add item to localstorage</div>
+        <label for="id1">Type key</label>
+        <input id="id1" #inputKey/>
+
+        <label for="id2">Type value</label>
+        <input id="id2" #inputValue/>
+        <button (click)="saveInStorage(inputKey.value, inputValue.value)">Add</button>
+      </section>
+
+      <section class="block">
+        <div class="title">Get item from localstorage</div>
+
+        <label for="id3">Type key</label>
+        <input id="id3" #key/>
+        <div class="value">Value={{valueFromStorage}}</div>
+        <button (click)="getByKey(key.value)">Get</button>
+      </section>
+
+      <section class="block">
+        <div class="title">Remove item from localstorage</div>
+
+        <label for="id4">Type key</label>
+        <input id="id4" #keyToRemove/>
+        <button (click)="removeByKey(keyToRemove.value)">Remove</button>
+      </section>
+    </div>
+
+    <div class="column">
+      <div class="title">Current localStorage</div>
+      <ul>
+        <li *ngFor="let item of currentLS">{{item[0]}}: {{item[1]}}</li>
+      </ul>
+    </div>
+  </div>
+</details>
+
+<details>
+  <summary>ConfigOptionsService</summary>
+  <div class="container">
+    <section class="block">
+      <div class="title">Set config</div>
+
+      <label for="id5">Type id</label>
+      <input id="id5" #id/>
+      <label for="id6">Type login</label>
+      <input id="id6" #login/>
+      <label for="id7">Type email</label>
+      <input id="id7" #email/>
+
+      <button (click)="saveConfig(id, login, email)">Save config</button>
+    </section>
+
+    <section class="block">
+      <div class="title">Get config</div>
+
+      <div class="value">Config: {{config}}</div>
+      <button (click)="getConfig()">Get</button>
+    </section>
+  </div>
+</details>
+
+<details>
+  <summary>ConstantsService</summary>
+  <div class="container">
+    <section class="block">
+      <div class="title">Values from the constant service</div>
+      <span>{{constants.app}}</span>
+      <span>{{constants.ver}}</span>
+    </section>
+  </div>
+</details>
+
+<details>
+  <summary>GeneratorService</summary>
+  <div class="container">
+    <section class="block">
+      <div class="title">Values from the constant service</div>
+
+
+      <label for="id8">Type length of string(only numbers)</label>
+      <input id="id8" #stringLength/>
+      <div class="value">Random string = {{randomString}}</div>
+      <button (click)="generateString(stringLength.value)">Generate a random string with {{stringLength.value}} symbols</button>
+    </section>
+  </div>
+</details>

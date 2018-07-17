@@ -1,0 +1,32 @@
+summary {
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+
+.container {
+  display: flex;
+
+  .column {
+    width: 50%;
+  }
+
+  .block {
+    margin: 30px;
+  }
+
+  .title {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 10px;
+  }
+
+  label {
+    color: green;
+  }
+
+  .value {
+    margin: 10px 0;
+  }
+}
+
+

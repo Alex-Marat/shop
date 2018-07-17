@@ -12,10 +12,9 @@ import { ProductsService } from './services/products.service';
     MatCardModule
   ],
   declarations: [ProductComponent, ProductListComponent],
-  exports: [ProductComponent, ProductListComponent],
   providers: [
     ProductsService,
-  ]
-
+  ],
+  exports: [ProductComponent, ProductListComponent]
 })
 export class ProductsModule { }

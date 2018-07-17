@@ -1,7 +1,5 @@
-<div>
-  <h1>Root component</h1>
-</div>
-<hr>
-  <app-cart-list></app-cart-list>
-<hr>
-<app-product-list></app-product-list>
+<nav class="menu">
+  <a [routerLink]="['shop']">Shop</a>
+  <a [routerLink]="['demo']">Services demo</a>
+</nav>
+<router-outlet></router-outlet>
