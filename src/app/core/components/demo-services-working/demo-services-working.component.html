@@ -55,7 +55,9 @@
       <label for="id7">Type email</label>
       <input id="id7" #email/>
 
-      <button (click)="saveConfig(id, login, email)">Save config</button>
+      <button (click)="saveConfig(id.value, login.value, email.value); clearInputs(id, login, email)">
+        Save config
+      </button>
     </section>
 
     <section class="block">
