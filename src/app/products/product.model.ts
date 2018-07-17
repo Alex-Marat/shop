@@ -20,14 +20,5 @@ export class ProductModel implements Product {
     public category: Category,
     public count: number,
     public isAvailable: boolean,
-    public discount?: number) {
-      this.id = id;
-      this.name = name;
-      this.description = description;
-      this.price = price;
-      this.category = category;
-      this.count = count;
-      this.isAvailable = isAvailable;
-      this.discount = discount || 0;
-  }
+    public discount: number = 0) {}
 }
