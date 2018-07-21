@@ -1,4 +1,6 @@
 <div class="container">
+  <span class="date">{{todayDate | date: 'dd/MM/yyyy'}}</span>
+
   <p *ngIf="counter; else emptyCart">
     Positions in  cart: {{counter}}
     <button (click)="showAll()">{{listIsShown ? 'Hide all' : 'Show all'}}</button>
@@ -14,7 +16,7 @@
     </div>
 
     <ng-container *ngIf="counter" >
-      <div class="total">Total: {{total | currency: '$'}}</div>
+      <div class="total">Total: {{total | currency: 'EUR'}}</div>
 
       <button class="confirm-btn" (click)="confirm()">Confirm the order</button>
       <button class="clear-btn" (click)="clearCart()">Clear the cart</button>

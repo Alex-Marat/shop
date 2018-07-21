@@ -16,6 +16,7 @@ export class CartListComponent implements OnInit, OnDestroy {
   listIsShown: boolean;
   list: ProductModel[];
   total: number;
+  todayDate: number;
 
   counterSubscription: Subscription;
 
@@ -25,6 +26,8 @@ export class CartListComponent implements OnInit, OnDestroy {
   ) {}
 
   ngOnInit() {
+    this.todayDate = Date.now();
+
     this.counterSubscription = this.cartService.getCartItemsLength()
       .subscribe(count => {
         this.counter = count;
