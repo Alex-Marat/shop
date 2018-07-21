@@ -1,7 +1,7 @@
 <div class="container">
   <div class="cart-item" appAddBorder>
     <span class="title">{{data.name | uppercase}}:</span>
-
+    <span class="price">Price: {{data.price}}</span>
     <span class="counter">Quantity:  {{currentCounter}}</span>
 
     <span class="btn" [ngClass]="{'disabled': notEnough}"

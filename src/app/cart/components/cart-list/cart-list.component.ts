@@ -5,6 +5,7 @@ import { Subscription } from 'rxjs';
 import { ProductModel } from '../../../products/product.model';
 import { CartService } from '../../services/cart.service';
 import { OrdersService } from '../../../orders/orders.service';
+import { OrderByPipe } from '../../../shared/order-by.pipe';
 
 @Component({
   selector: 'app-cart-list',
@@ -17,12 +18,15 @@ export class CartListComponent implements OnInit, OnDestroy {
   list: ProductModel[];
   total: number;
   todayDate: number;
+  sortAsc: boolean = false;
+  sortField: string = 'name';
 
   counterSubscription: Subscription;
 
   constructor(
     public cartService: CartService,
-    public ordersService: OrdersService
+    public ordersService: OrdersService,
+    public orderByPipe: OrderByPipe
   ) {}
 
   ngOnInit() {
@@ -77,6 +81,29 @@ export class CartListComponent implements OnInit, OnDestroy {
       this.cartService.clearCart();
       this.refreshList();
     }
+  }
+
+  isSortBy(field: string) {
+    return field && this.sortField === field;
+  }
+
+  sortBy(field: string) {
+    this.toggleSortOrder();
+
+    if(this.sortField !== field) {
+      this.setActiveSortOption(field);
+    }
+
+    this.orderByPipe.transform(this.list, field, this.sortAsc);
+  }
+
+  setActiveSortOption(field: string) {
+    this.sortAsc = false;
+    this.sortField = field;
+  }
+
+  toggleSortOrder() {
+    this.sortAsc = !this.sortAsc;
   }
 
   ngOnDestroy() {

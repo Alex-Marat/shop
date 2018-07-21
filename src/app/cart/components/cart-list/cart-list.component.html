@@ -7,7 +7,20 @@
   </p>
 
   <ng-container *ngIf="listIsShown" >
-    <div *ngFor="let cart of list; index as i" class="list-box">
+    <div class="items-header" *ngIf="list?.length > 1">
+      Sort by:
+      <span [ngClass]="{'active': isSortBy('name')}" (click)="sortBy('name')">Name
+        <i class="material-icons icon">{{sortAsc ? 'arrow_upward' : 'arrow_downward'}}</i>
+      </span>
+      <span [ngClass]="{'active': isSortBy('price')}" (click)="sortBy('price')">Price
+        <i class="material-icons icon">{{sortAsc ? 'arrow_upward' : 'arrow_downward'}}</i>
+      </span>
+      <span [ngClass]="{'active': isSortBy('count')}" (click)="sortBy('count')">Count
+        <i class="material-icons icon">{{sortAsc ? 'arrow_upward' : 'arrow_downward'}}</i>
+      </span>
+    </div>
+
+    <div *ngFor="let cart of list | orderBy : 'name'; index as i" class="list-box">
       <div class="counter">{{i + 1}})</div><app-cart-item [data]="cart"
         (removeItem)="removeFromCart($event)"
         (increase)="increaseItems($event)"

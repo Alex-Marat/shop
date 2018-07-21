@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { AddBorderDirective } from './add-border.directive';
 import { CustomClickDirective } from './custom-click.directive';
+import { OrderByPipe } from './order-by.pipe';
 
 @NgModule({
   imports: [
@@ -10,11 +11,14 @@ import { CustomClickDirective } from './custom-click.directive';
   ],
   declarations: [
     AddBorderDirective,
-    CustomClickDirective
+    CustomClickDirective,
+    OrderByPipe
   ],
+  providers: [OrderByPipe],
   exports: [
     AddBorderDirective,
-    CustomClickDirective
+    CustomClickDirective,
+    OrderByPipe
   ]
 })
 export class SharedModule { }
