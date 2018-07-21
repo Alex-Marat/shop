@@ -1,5 +1,5 @@
 <div class="container">
-  <div *ngFor="let product of products; let i=index">
+  <div *ngFor="let product of products | async; let i=index">
     <app-product-component [data]="product" (buy)="onBuy($event)"></app-product-component>
     <div class="label" (mouseenter)="onLogCountForItem(i)">Hover to log the item count</div>
   </div>

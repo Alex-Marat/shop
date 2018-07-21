@@ -14,7 +14,7 @@ export class ProductListComponent implements OnInit, AfterViewInit {
   @ViewChildren(ProductComponent) children: ProductComponent[];
   @ViewChild(ProductComponent) child;
 
-  products: ProductModel[];
+  products: Promise<ProductModel[]>;
 
   constructor(
     public productsService: ProductsService,
@@ -25,7 +25,7 @@ export class ProductListComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit() {
-    this.child.logCountForDemo();
+    // this.child.logCountForDemo();
   }
 
   onBuy(item) {

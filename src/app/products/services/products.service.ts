@@ -12,7 +12,7 @@ export class ProductsService {
   }
 
   getProducts() {
-    return this.products;
+    return Promise.resolve(this.products);
   }
 
   getProductById(id: string): ProductModel {
