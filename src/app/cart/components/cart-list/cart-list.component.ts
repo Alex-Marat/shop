@@ -90,7 +90,7 @@ export class CartListComponent implements OnInit, OnDestroy {
   sortBy(field: string) {
     this.toggleSortOrder();
 
-    if(this.sortField !== field) {
+    if (this.sortField !== field) {
       this.setActiveSortOption(field);
     }
 

@@ -5,7 +5,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class OrderByPipe implements PipeTransform {
 
-  transform(array: any[], fieldSort: string, sortAscFlag : boolean) {
+  transform(array: any[], fieldSort: string, sortAscFlag: boolean) {
     const ctx = this;
 
     return array.sort((a, b) => {
@@ -13,11 +13,11 @@ export class OrderByPipe implements PipeTransform {
     });
   }
 
-  static sortByAsc (a, b, field) {
+  sortByAsc (a, b, field) {
     return a[field].toString().toLowerCase() > b[field].toString().toLowerCase() ? 1 : -1;
   }
 
-  static sortByDesc(a, b, field) {
-    return  b[field].toString().toLowerCase() > a[field].toString().toLowerCase() ? 1 : -1
+  sortByDesc(a, b, field) {
+    return  b[field].toString().toLowerCase() > a[field].toString().toLowerCase() ? 1 : -1;
   }
 }

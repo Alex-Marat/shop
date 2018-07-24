@@ -36,7 +36,7 @@
     <div class="column">
       <div class="title">Current localStorage</div>
       <ul>
-        <li *ngFor="let item of currentLS">{{item[0]}}: {{item[1]}}</li>
+        <li *ngFor="let item of currentLocalStorageData">{{item[0]}}: {{item[1]}}</li>
       </ul>
     </div>
   </div>
@@ -84,13 +84,8 @@
   <summary>GeneratorService</summary>
   <div class="container">
     <section class="block">
-      <div class="title">Values from the constant service</div>
-
-
-      <label for="id8">Type length of string(only numbers)</label>
-      <input id="id8" #stringLength/>
       <div class="value">Random string = {{randomString}}</div>
-      <button (click)="generateString(stringLength.value)">Generate a random string with {{stringLength.value}} symbols</button>
+      <button (click)="generateString()">Generate a random string symbols</button>
     </section>
   </div>
 </details>

@@ -1,36 +1,38 @@
-import { Component, ElementRef, OnInit, Optional, ViewChild } from '@angular/core';
+import {Component, ElementRef, Inject, OnInit, Optional, ViewChild} from '@angular/core';
 
 import { LocalStorageService } from '../../services/local-storage.service';
 import { ConfigOptionsService } from '../../services/config-options.service';
 import { ConstantsService } from '../../services/constants.service';
-import { GeneratorService} from '../../services/generator.service';
+import { GeneratorService } from '../../services/generator.service';
+import { GeneratorServiceProvider, RANDOM_WORD_GENERATOR } from '../../services/generator.service.provider';
 
 @Component({
   selector: 'app-demo-services-working',
   templateUrl: './demo-services-working.component.html',
-  styleUrls: ['./demo-services-working.component.scss']
+  styleUrls: ['./demo-services-working.component.scss'],
+  providers: [ GeneratorService, GeneratorServiceProvider ]
 })
 export class DemoServicesWorkingComponent implements OnInit {
   @ViewChild('inputKey') key: ElementRef;
   @ViewChild('inputValue') value: ElementRef;
 
   valueFromStorage: string;
-  currentLS;
-  config;
+  currentLocalStorageData: object;
+  config: string;
   constants: ConstantsService;
   randomString: string;
-  generator: GeneratorService;
 
   constructor(
     public lsService: LocalStorageService,
     public configService: ConfigOptionsService,
+    @Inject(RANDOM_WORD_GENERATOR) public randomWord: string,
     @Optional() public constantsService: ConstantsService
   ) {
       this.constantsService = constantsService ? constantsService : { app: 'default', ver: '0.0'};
   }
 
   ngOnInit() {
-    this.currentLS = Object.entries(this.lsService.getStorage());
+    this.currentLocalStorageData = Object.entries(this.lsService.getStorage());
     this.constants = this.constantsService;
   }
 
@@ -61,7 +63,7 @@ export class DemoServicesWorkingComponent implements OnInit {
   }
 
   refreshLSDAta() {
-    this.currentLS = Object.entries(this.lsService.getStorage());
+    this.currentLocalStorageData = Object.entries(this.lsService.getStorage());
   }
 
   saveConfig(id, login, email) {
@@ -78,16 +80,7 @@ export class DemoServicesWorkingComponent implements OnInit {
     });
   }
 
-  generateString(length) {
-    if (Number.isNaN(+length)) {
-      console.log('The value should be a number !');
-      return;
-    }
-
-    if ( !(this.generator && this.generator.getLength() === +length) ) {
-      this.generator = new GeneratorService(+length);
-      console.log('new generator created');
-    }
-    this.randomString = this.generator.getRandomWord();
+  generateString() {
+    this.randomString = this.randomWord;
   }
 }
