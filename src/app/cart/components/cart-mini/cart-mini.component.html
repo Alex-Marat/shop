@@ -1,0 +1,10 @@
+<p *ngIf="counter; else emptyCart" class="cart-box" (click)="openCart()">
+  <img class="cart-image"
+    src="https://cdn.pixabay.com/photo/2014/04/02/10/53/shopping-cart-304843__340.png"
+    alt="Positions in  cart">
+  <span class="counter">{{counter}}</span>
+</p>
+
+<ng-template #emptyCart>
+  <p> Your cart is empty</p>
+</ng-template>
