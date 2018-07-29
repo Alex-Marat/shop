@@ -1,5 +1,10 @@
-import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
+import {
+  ChangeDetectionStrategy, Component,
+  EventEmitter, Input,
+  OnInit, Output
+} from '@angular/core';
 import { trigger, style, transition, animate, state } from '@angular/animations';
+import { ActivatedRoute } from '@angular/router';
 
 import { ProductModel } from '../../product.model';
 
@@ -27,19 +32,26 @@ import { ProductModel } from '../../product.model';
     ])
   ]
 })
-export class ProductComponent {
+export class ProductComponent implements OnInit {
   @Input() data: ProductModel;
   @Output() public buy = new EventEmitter<ProductModel>();
 
   animationState = 'normal';
+  showReviews = false;
+
+  constructor(public route: ActivatedRoute) {}
+
+  ngOnInit() {
+    const resolveData = this.route.snapshot.data.data;
+    if (resolveData) {
+      this.data = resolveData;
+      this.showReviews = true;
+    }
+  }
 
   onClick() {
     console.log(`The product ${this.data.name}(${this.data.id}) is added to your cart`);
     this.buy.emit(this.data);
-  }
-
-  logCountForDemo() {
-    console.log(`From first component(demo): item ${this.data.name} has ${this.data.count} items`);
   }
 
   onAnimate() {

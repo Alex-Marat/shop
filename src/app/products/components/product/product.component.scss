@@ -1,5 +1,6 @@
 .product-card {
   min-width: 200px;
+  max-width: 500px;
   height: 160px;
   padding: 10px;
   margin: 20px;
@@ -10,13 +11,13 @@
 }
 
 .buy-btn {
-  width: 50px;
+  width: 80px;
   height: 30px;
   padding: 5px;
+  margin-left: 60px;
   color: #000;
   border: none;
   font-size: 14px;
-  float: right;
   background-color: green;
 }
 

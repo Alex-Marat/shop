@@ -1,6 +1,6 @@
 <div class="container">
-  <div *ngFor="let product of products | async; let i=index">
+  <div *ngFor="let product of products">
     <app-product-component [data]="product" (buy)="onBuy($event)"></app-product-component>
-    <div class="label" (mouseenter)="onLogCountForItem(i)">Hover to log the item count</div>
+    <div class="label"><a [routerLink]="['/products', product.id]">See the product info</a></div>
   </div>
 </div>

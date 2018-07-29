@@ -18,8 +18,8 @@ export class CartListComponent implements OnInit, OnDestroy {
   list: ProductModel[];
   total: number;
   todayDate: number;
-  sortAsc: boolean = false;
-  sortField: string = 'name';
+  sortAsc = false;
+  sortField = 'name';
 
   counterSubscription: Subscription;
 

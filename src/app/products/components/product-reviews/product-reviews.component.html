@@ -1,0 +1,10 @@
+<aside class="reviews">
+  <div class="header">Reviews</div>
+
+  <div class="body">
+    <div *ngFor="let review of reviews$ | async " class="review">
+      <div class="date">{{review.date | date: 'mediumDate'}}</div>
+      <div>{{review.author}}: {{review.text}}</div>
+    </div>
+  </div>
+</aside>

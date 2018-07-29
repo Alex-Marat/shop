@@ -1,0 +1,24 @@
+.reviews {
+  width: 25%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  right: 0;
+  border-left: 1px solid green;
+  padding: 30px;
+}
+
+.header {
+  font-size: 20px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.review {
+  padding: 10px;
+  border-bottom: 1px solid grey;
+}
+
+.date {
+  margin: 5px;
+}

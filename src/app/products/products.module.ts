@@ -2,21 +2,30 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatCardModule } from '@angular/material/card';
 
-import { ProductComponent } from './components/product/product.component';
-import { ProductListComponent } from './components/product-list/product-list.component';
-import { ProductsService } from './services/products.service';
+import {
+  ProductListComponent,
+  ProductComponent,
+  ProductReviewsComponent } from './components';
+import { ProductsService, ProductResolver } from './services';
+import { ProductsRoutingModule } from './products-routing.module';
 import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
   imports: [
     CommonModule,
     MatCardModule,
-    SharedModule
+    SharedModule,
+    ProductsRoutingModule
   ],
-  declarations: [ProductComponent, ProductListComponent],
+  declarations: [
+    ProductComponent,
+    ProductListComponent,
+    ProductReviewsComponent
+  ],
   providers: [
     ProductsService,
+    ProductResolver
   ],
-  exports: [ProductComponent, ProductListComponent]
+  exports: [ProductComponent, ProductListComponent, ProductReviewsComponent]
 })
 export class ProductsModule { }

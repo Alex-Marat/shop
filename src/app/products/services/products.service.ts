@@ -19,6 +19,14 @@ export class ProductsService {
     return this.products.filter((p) => p.id === id)[0];
   }
 
+  getReviews(id: string) {
+    return Promise.resolve([
+      {date: 1532880330602, author: 'Nick', text: 'cool'},
+      {date: 1532880340602, author: 'Jack', text: 'Nice thing'},
+      {date: 1532890330602, author: 'Robert', text: 'Amazing!'}
+    ]);
+  }
+
   private _getProducts(): Array<ProductModel> {
     const res = [];
     const getCount = (i) => i % 2 ? i : 0;

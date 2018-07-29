@@ -1,6 +1,7 @@
-<mat-card class="product-card">
+<mat-card class="product-card" *ngIf="data; else noData">
   <mat-card-header class="header">
     <mat-card-title>{{data.name}}</mat-card-title>
+    <button class="buy-btn" *ngIf="data.isAvailable" (click)="onClick()">Add to cart</button>
   </mat-card-header>
   <mat-card-content>
     <ul>
@@ -13,9 +14,12 @@
       <li>Made in {{data.category}}</li>
       <li>Total:{{data.count}}</li>
       <li>Availaibility: {{data.isAvailable ? 'in the shop' : 'absent'}}</li>
-
     </ul>
-
-    <button class="buy-btn" *ngIf="data.isAvailable" (click)="onClick()">Buy</button>
   </mat-card-content>
 </mat-card>
+
+<router-outlet name="reviews" *ngIf="showReviews"></router-outlet>
+
+<ng-template #noData>
+  <h4>Such product does not exist</h4>
+</ng-template>
