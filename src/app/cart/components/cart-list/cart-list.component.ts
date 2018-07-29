@@ -14,7 +14,6 @@ import { OrderByPipe } from '../../../shared/order-by.pipe';
 })
 export class CartListComponent implements OnInit, OnDestroy {
   counter = 0;
-  listIsShown: boolean;
   list: ProductModel[];
   total: number;
   todayDate: number;
@@ -31,6 +30,8 @@ export class CartListComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.todayDate = Date.now();
+    this.list = this.cartService.getAllCartItems();
+    this.counter = this.list ? this.list.length : 0;
 
     this.counterSubscription = this.cartService.getCartItemsLength()
       .subscribe(count => {
@@ -39,15 +40,6 @@ export class CartListComponent implements OnInit, OnDestroy {
       });
 
     this.total = this.cartService.getTotalSum();
-  }
-
-  showAll() {
-    this.refreshList();
-    this.toggleListVisibility();
-  }
-
-  toggleListVisibility() {
-    this.listIsShown = !this.listIsShown;
   }
 
   refreshList() {

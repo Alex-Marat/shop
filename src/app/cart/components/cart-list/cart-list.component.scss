@@ -1,14 +1,26 @@
+.main-title {
+  text-align: center;
+}
+
 .container {
-  width: 400px;
+  margin: 20px 20%;
+  padding: 30px 20px;
+  border-top: 1px solid gray;
+  border-bottom: 1px solid gray;
+}
+
+.cart-empty {
+  font-size: 18px;
 }
 
 .date{
+  margin-bottom: 15px;
   float: right;
 }
 
 .items-header {
   margin-bottom: 15px;
-  text-align: right;
+  margin-left: 40px;
   font-size: 20px;
 
   > span {
@@ -44,12 +56,19 @@
 
 .total {
   font-size: 22px;
-  position: relative;
-  left: 100%;
+  float: right;
   color: green;
 }
 
-.clear-btn {
-  color: red;
-  margin-left: 50px;
+.btn {
+  font-size: 16px;
+  padding: 5px;
+
+  &--confirm {
+    margin: 30px 50px 0 0;
+  }
+
+  &--clear {
+    color: red;
+  }
 }

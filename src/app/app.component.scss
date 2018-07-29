@@ -1,12 +1,7 @@
-.menu {
-  display: flex;
-  justify-content: center;
+.logo {
+  margin: 30px;
 
-  a {
-    padding: 10px 30px;
-    margin-right: 30px;
-    border: 1px solid blue;
-    font-size: 20px;
-    text-decoration: none;
+  &--img {
+    width: 130px;
   }
 }

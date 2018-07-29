@@ -1,12 +1,8 @@
+<h2 class="main-title">Your cart</h2>
 <div class="container">
   <span class="date">{{todayDate | date: 'dd/MM/yyyy'}}</span>
 
-  <p *ngIf="counter; else emptyCart">
-    Positions in  cart: {{counter}}
-    <button (click)="showAll()">{{listIsShown ? 'Hide all' : 'Show all'}}</button>
-  </p>
-
-  <ng-container *ngIf="listIsShown" >
+  <div class="cart-table" *ngIf="counter; else empty">
     <div class="items-header" *ngIf="list?.length > 1">
       Sort by:
       <span [ngClass]="{'active': isSortBy('name')}" (click)="sortBy('name')">Name
@@ -31,12 +27,12 @@
     <ng-container *ngIf="counter" >
       <div class="total">Total: {{total | currency: 'EUR'}}</div>
 
-      <button class="confirm-btn" (click)="confirm()">Confirm the order</button>
-      <button class="clear-btn" (click)="clearCart()">Clear the cart</button>
+      <button class="btn btn--confirm" (click)="confirm()">Confirm the order</button>
+      <button class="btn btn--clear" (click)="clearCart()">Clear the cart</button>
     </ng-container>
-  </ng-container>
-
-  <ng-template #emptyCart>
-    <p> Your cart is empty</p>
-  </ng-template>
+  </div>
 </div>
+
+<ng-template #empty>
+  <p class="cart-empty" > Your cart is empty. Please proceed to <a [routerLink]="['/']">products list</a></p>
+</ng-template>

@@ -12,6 +12,7 @@ import { ShopComponent } from './core/components/shop/shop.component';
 import { DemoServicesWorkingComponent} from './core/components/demo-services-working/demo-services-working.component';
 
 const routes: Routes = [
+  { path: '', redirectTo: 'shop', pathMatch: 'full' },
   { path: 'shop', component: ShopComponent },
   { path: 'demo', component: DemoServicesWorkingComponent }
 ];

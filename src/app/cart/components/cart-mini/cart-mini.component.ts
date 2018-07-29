@@ -11,7 +11,7 @@ import { CartService } from '../../services/cart.service';
   styleUrls: ['./cart-mini.component.css']
 })
 export class CartMiniComponent implements OnInit, OnDestroy {
-  counter = 0;
+  counter: number;
   counterSubscription: Subscription;
 
   constructor(
